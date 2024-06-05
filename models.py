@@ -1,4 +1,4 @@
-from sqlalchemy import Column, ForeignKey, Integer, String, Float, Text
+from sqlalchemy import Column, ForeignKey, Integer, String, Float, Text, DateTime
 from sqlalchemy.orm import relationship
 from database import Base
 
@@ -33,12 +33,13 @@ class Question(Base):
     title = Column(String(1024))
     content = Column(Text, nullable= False)
     answers = relationship("Answer", back_populates="question", cascade = "delete")
-
+    create_date = Column(DateTime, nullable = False)
 
 class Answer(Base):
     __tablename__ = "answer"
 
     id = Column(Integer, primary_key = True, index = True)
-    content = Column(Text, nullable=False)
+    content = Column(Text, nullable= False)
     question_id = Column(Integer, ForeignKey('question.id'))       # ForeignKey와 relationship 기능을 통해 Question과 Answer 모델 연결하여 질문에 달린 답변, 답변이 있는 질문 접근
     question = relationship("Question", back_populates="answers")  # answers.question으로 접근
+    create_date = Column(DateTime, nullable = False)
