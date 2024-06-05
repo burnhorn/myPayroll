@@ -9,7 +9,7 @@ class QuestionCreate(QuestionBase):
     pass
 
 class QuestionUpdate(QuestionBase):
-    id : int
+    pass
 
 class QuestionDelete(QuestionBase):
     id : int    

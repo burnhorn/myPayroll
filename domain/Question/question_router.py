@@ -19,7 +19,7 @@ async def create_question(question_body : question_schema.QuestionCreate, db: Se
 
 
 @router.put("/question/{question_id}", response_model=question_schema.QuestionCreateResponse)
-async def update_question(question_id : int, question_body : question_schema.QuestionCreate, db:Session = Depends(get_db)):
+async def update_question(question_id : int, question_body : question_schema.QuestionUpdate, db:Session = Depends(get_db)):
     question = question_crud.get_question(db, question_id = question_id)
     if question is None:
         raise HTTPException(status_code = 404, detail = "Data Not Found")

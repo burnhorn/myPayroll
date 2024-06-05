@@ -7,10 +7,10 @@ class AnswerCreate(AnswerBase):
     pass
 
 class AnswerUpdate(AnswerBase):
-    id : int
+    pass
 
 class AnswerDelete(AnswerBase):
     id : int
 
 class AnswerCreateResponse(AnswerCreate):
-    pass
+    id : int

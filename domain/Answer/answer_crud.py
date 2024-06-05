@@ -20,3 +20,15 @@ def create_answer(db:Session, answer_create : answer_schema.AnswerCreate, questi
     db.refresh(db_answer)
     return db_answer
 
+# 질문 객체 찾는 함수
+def get_answer(db:Session, answer_id:int) -> Answer | None:
+    result = db.execute(select(Answer).filter(Answer.id == answer_id))
+    return result.scalars().first()
+
+# get_answer 함수로 얻은 Answer 객체를 사용하여 DB에 있는 데이터에 새로운 입력값 반영
+def update_answer(db:Session, answer_update:answer_schema.AnswerUpdate, answer_original:Answer) -> Answer:
+    answer_original.content = answer_update.content
+    db.add(answer_original)
+    db.commit()
+    db.refresh(answer_original)
+    return answer_original

@@ -9,9 +9,9 @@ router = APIRouter(
 )
 
 
-@router.get("/get/{question_id}", response_model = answer_schema.AnswerBase)
-async def get_question():
-    pass
+@router.get("/get/{answer_id}", response_model = answer_schema.AnswerCreateResponse)
+async def get_answer(answer_id : int, db:Session = Depends(get_db)):
+    return answer_crud.get_answer(db, answer_id)
 
 @router.post("/create/{question_id}", response_model= answer_schema.AnswerCreateResponse)
 async def create_answer(
@@ -23,10 +23,18 @@ async def create_answer(
     if not question:
         raise HTTPException(status_code=404, detail="Question Not Found")
     return answer_crud.create_answer(db, answer_body, question)
-    
-@router.put("/update/{answer_id}")
-async def update_question():
-    pass
+
+# 질문 객체를 가져와 request body 입력값을 db에 전달하여 질문 수정 함수    
+@router.put("/update/{answer_id}", response_model=answer_schema.AnswerCreateResponse)
+async def update_answer(
+    answer_id : int,
+    answer_body : answer_schema.AnswerUpdate, db : Session = Depends(get_db)):
+
+    answer = answer_crud.get_answer(db, answer_id)
+
+    if not answer:
+        raise HTTPException(status_code=404, detail = "Answer Not Found")
+    return answer_crud.update_answer(db, answer_body, answer_original = answer )
 
 @router.delete("delete/{answer_id}")
 async def delete_question():
