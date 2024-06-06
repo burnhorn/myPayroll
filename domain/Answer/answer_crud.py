@@ -32,3 +32,9 @@ def update_answer(db:Session, answer_update:answer_schema.AnswerUpdate, answer_o
     db.commit()
     db.refresh(answer_original)
     return answer_original
+
+
+# get_answer로 찾은 Answer 객체를 삭제
+def delete_answer(db:Session, answer_select : Answer) -> None:
+    db.delete(answer_select)
+    db.commit()
