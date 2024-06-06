@@ -14,17 +14,13 @@ class InsuranceRate(Base):
 
     # newpeople = relationship("NewPeople", back_populates="rates")
     
+class User(Base):
+    __tablename__ = "user"
 
-"""
-class NewPoeple(Base):
-    __tablename__ = "Not_Insurance_People"
-
-    id = Column(Integer, ForeignKey('4_Major_Insurance_rates.id'), primary_key=True)
-    name = Column(String(1024), nullable=False)
-    emp_num = Column(String(1024), nullable=False) 
-
-    rate = relationship("InsureanceRate", back_populates="newpoeple")
-"""
+    id = Column(Integer, primary_key=True)
+    user_name = Column(String(1024), unique=True, nullable=False)
+    password = Column(String(1024), nullable=False) 
+    email = Column(String(1024), unique=True, nullable=False)
 
 class Question(Base):
     __tablename__ = "question"

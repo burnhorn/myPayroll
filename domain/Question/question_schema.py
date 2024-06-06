@@ -6,7 +6,7 @@ class QuestionBase(BaseModel):
     content : str | None = Field(None, example = "더미데이터")
 
 class QuestionCreate(QuestionBase):
-    pass
+    create_date : datetime.datetime
 
 class QuestionUpdate(QuestionBase):
     pass
@@ -16,6 +16,6 @@ class QuestionDelete(QuestionBase):
 
 # response_model로 사용하여 작성된 질문 데이터가 어디에 있는지 확인하는 용도
 class QuestionCreateResponse(QuestionCreate):
-    id : int
+    pass
 
 

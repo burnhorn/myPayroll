@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from domain.Insurance import Insurance_router
 from domain.Question import question_router
 from domain.Answer import answer_router
+from domain.User import user_router
 
 app = FastAPI()
 
@@ -18,3 +19,4 @@ app.add_middleware(
 app.include_router(Insurance_router.router)
 app.include_router(question_router.router)
 app.include_router(answer_router.router)
+app.include_router(user_router.router)
