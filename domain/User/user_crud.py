@@ -9,6 +9,7 @@ myctx = CryptContext(schemes=["bcrypt"], deprecated="auto")
 # User 모델 객체에 uer_create 스키마 제한값 할당 
 def create_user(db:Session, user_create :user_schema.UserCreate) -> User:
     #user = User(**user_create.dict())
+    user = User(user_name = user_create.user_name, password = user_create.password1, email = user_create.email)
     user = User(user_name = user_create.user_name,
                 password = myctx.hash(user_create.password1),
                 email = user_create.email)
