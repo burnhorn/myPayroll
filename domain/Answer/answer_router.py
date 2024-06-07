@@ -36,7 +36,7 @@ async def update_answer(
         raise HTTPException(status_code=404, detail = "Answer Not Found")
     return answer_crud.update_answer(db, answer_body, answer_original = answer )
 
-@router.delete("delete/{answer_id}")
+@router.delete("/delete/{answer_id}")
 async def delete_question(answer_id : int, db:Session = Depends(get_db)):
     answer = answer_crud.get_answer(db, answer_id = answer_id)
     if answer is None:
