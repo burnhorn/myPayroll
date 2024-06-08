@@ -38,8 +38,9 @@ async def tokenForLogin(form_data: Annotated[OAuth2PasswordRequestForm, Depends(
     # 토큰 생성 알고리즘이 없으므로 반환받은 User 객체의 user_name 항목을 출력
     return {"access_token": user.user_name, "token_type": "bearer"}
 
-async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> User:
-    user = user_crud.fake_decode_token(token)
+# token 값은 oauth2_scheme->@router.post("/token")에서 얻어진 "access_token"
+async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], db: Session = Depends(get_db)) -> User:
+    user = user_crud.fake_decode_token(db, token)
     if not user:
         raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -50,5 +51,5 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]) -> Use
 
 
 @router.get("/me")
-async def read_items(current_user: Annotated[str, Depends(get_current_user)]):
+async def read_user(current_user: Annotated[str, Depends(get_current_user)]):
     return current_user
