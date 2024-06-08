@@ -3,9 +3,11 @@ from typing_extensions import Self
 
 class UserBase(BaseModel):
     user_name: str
+    
+class UserCreate(UserBase):
+    email: EmailStr
     password1: str
     password2: str
-    email: EmailStr
 
     @field_validator('user_name', 'password1', 'password2', 'email')
     @classmethod
@@ -22,8 +24,9 @@ class UserBase(BaseModel):
             raise ValueError('비밀번호가 다릅니다')
         return self
 
-class UserCreate(UserBase):
-    pass
+class UserInDB(UserBase):
+    passwword : str
+
 
 class UserCreateResponse(UserCreate):
     pass
