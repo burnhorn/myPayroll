@@ -21,6 +21,8 @@ class User(Base):
     user_name = Column(String(1024), unique=True, nullable=False)
     password = Column(String(1024), nullable=False) 
     email = Column(String(1024), unique=True, nullable=False)
+    questions_user = relationship("Question", back_populates="question_user") # back_populates는 relationship으로 연결된 항목 이름과 일치해야 한다.
+    answers_user = relationship("Answer", back_populates="answer_user")
 
 class Question(Base):
     __tablename__ = "question"
@@ -30,6 +32,8 @@ class Question(Base):
     content = Column(Text, nullable= False)
     answers = relationship("Answer", back_populates="question", cascade = "delete")
     create_date = Column(DateTime, nullable = False)
+    user_id = Column(Integer, ForeignKey('user.id'), nullable = True)
+    question_user = relationship("User", back_populates="questions_user")
 
 class Answer(Base):
     __tablename__ = "answer"
@@ -39,3 +43,5 @@ class Answer(Base):
     question_id = Column(Integer, ForeignKey('question.id'))       # ForeignKey와 relationship 기능을 통해 Question과 Answer 모델 연결하여 질문에 달린 답변, 답변이 있는 질문 접근
     question = relationship("Question", back_populates="answers")  # answers.question으로 접근
     create_date = Column(DateTime, nullable = False)
+    user_id = Column(Integer, ForeignKey('user.id'), nullable=True)
+    answer_user = relationship("User", back_populates="answers_user")
