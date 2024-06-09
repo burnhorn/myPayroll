@@ -29,7 +29,7 @@ def get_question_list(db:Session) -> list[Question]:
         Question.title,
         Question.create_date,
         Question.user_id,
-        User.user_name.label('username'),
+        User.user_name.label('user_name'),
         ).outerjoin(User, Question.user_id == User.id))
     return result.all()
 

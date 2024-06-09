@@ -23,4 +23,4 @@ class QuestionList(BaseModel):
     id : int
     title : str
     create_date : datetime.datetime
-    username: str
+    user_name: str
