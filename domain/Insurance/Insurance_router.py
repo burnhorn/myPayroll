@@ -24,7 +24,7 @@ async def calculate_insurance(db: Session = Depends(get_db), salary : int = Quer
 
     return value
     
-
+"""
 # 4대보험요율 변경
 @router.put("/update/{rate_id}", response_model=salary_schema.InsuranceRateBase)
 async def update_insurance_rate(rate_id: int, new_values: dict, db: Session = Depends(get_db)):
@@ -32,3 +32,4 @@ async def update_insurance_rate(rate_id: int, new_values: dict, db: Session = De
     if updated_rate is None:
         raise HTTPException(status_code=404, detail="Rate not found")
     return updated_rate
+"""
