@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import select
+from sqlalchemy import DateTime, Result, select
 from sqlalchemy.orm import Session
 
 from models import Question, User
@@ -21,7 +21,20 @@ def create_question(db:Session, question_create:question_schema.QuestionCreate, 
 def get_question(db:Session, question_id:int) -> Question | None:
     result = db.execute(select(Question).filter(Question.id == question_id))
     return result.scalars().first()
-    
+
+# Quesiton 테이블과 User 테이블 조인하여 User.user_name 가져오기
+def get_question_list(db:Session) -> list[Question]:
+    result = db.execute(select(
+        Question.id,
+        Question.title,
+        Question.create_date,
+        Question.user_id,
+        User.user_name.label('username'),
+        ).outerjoin(User, Question.user_id == User.id))
+    return result.all()
+
+
+
 # get_question 함수로 얻은 객체를 사용하여 DB에 있는 데이터에 새로운 입력값을 반영하는 함수
 def update_question(db:Session, question_update:question_schema.QuestionCreate, question_original : Question) -> Question:
     question_original.title = question_update.title
