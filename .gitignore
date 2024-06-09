@@ -170,3 +170,4 @@ alembic.ini
 .env
 .env.production
 create_initial_data.py
+test.py
