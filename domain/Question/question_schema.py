@@ -7,7 +7,7 @@ class QuestionBase(BaseModel):
 
 class QuestionCreate(QuestionBase):
     create_date : datetime.datetime
-
+    
 class QuestionUpdate(QuestionBase):
     pass
 

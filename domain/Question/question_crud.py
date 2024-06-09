@@ -1,12 +1,17 @@
+from datetime import datetime
+
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from models import Question
+from models import Question, User
 from domain.Question import question_schema
 
 # Question 모델 객체 반환하여 DB에 반영
-def create_question(db:Session, question_create:question_schema.QuestionCreate) -> Question:
-    question = Question(**question_create.dict())
+def create_question(db:Session, question_create:question_schema.QuestionCreate, user : User) -> Question:
+    question = Question(title=question_create.title,
+                        content=question_create.content,
+                        create_date=datetime.now(),
+                        question_user = user)
     db.add(question)
     db.commit()
     db.refresh(question)

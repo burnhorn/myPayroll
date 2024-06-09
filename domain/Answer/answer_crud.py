@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from models import Answer, Question
+from models import Answer, Question, User
 from domain.Answer import answer_schema
 
 from datetime import datetime
@@ -12,9 +12,9 @@ def get_questionForAnswer(db:Session, question_id:int) -> Question | None:
     return result.scalars().first()
 
 # 원하는 question_id와 content를 담은 답변 객체 전달
-def create_answer(db:Session, answer_create : answer_schema.AnswerCreate, question : Question) -> Answer:
+def create_answer(db:Session, answer_create : answer_schema.AnswerCreate, question : Question, user : User) -> Answer:
     # Answer 모델의 question 항목에 Question 객체를 전달하면 relationship과 ForeignKey 설정에 의해 question_id 자동 할당하므로 굳이 question_id를 라우터에서 가져올 필요 없다.
-    db_answer = Answer(question = question, content = answer_create.content, create_date = datetime.now())  # model의 Integer 속성을 가진 항목 제외하고 모두 전달해야 insert 오류 안 나옴
+    db_answer = Answer(question = question, content = answer_create.content, create_date = datetime.now(), answer_user = user)  # model의 Integer 속성을 가진 항목 제외하고 모두 전달해야 insert 오류 안 나옴
     db.add(db_answer)
     db.commit()
     db.refresh(db_answer)

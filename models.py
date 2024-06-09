@@ -33,7 +33,7 @@ class Question(Base):
     answers = relationship("Answer", back_populates="question", cascade = "delete")
     create_date = Column(DateTime, nullable = False)
     user_id = Column(Integer, ForeignKey('user.id'), nullable = True)
-    question_user = relationship("User", back_populates="questions_user")
+    question_user = relationship("User", back_populates="questions_user") # question_user 항목에 특정 User 모델을 저장하면 user_id 값에 자동으로 그 User 모델의 id가 저장된다
 
 class Answer(Base):
     __tablename__ = "answer"
