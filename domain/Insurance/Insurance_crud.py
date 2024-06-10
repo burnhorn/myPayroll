@@ -11,15 +11,15 @@ def get_rate(db: Session):
 # 원단위 절사 (국민연금 기준소득월액 1000원 미만 절사 추가 예정)
 def get_value(db: Session, salary):
     rate = db.execute(select(InsuranceRate)).scalars().first()
-    if salary <= 370000:
+    if salary <= 390000:
         calculated_values = {
-        "national_pension": math.floor(370000 * rate.national_pension / 10) * 10,
+        "national_pension": math.floor(390000 * rate.national_pension / 10) * 10,
         "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
         "medical_insurance": None,
         "industrial_accident_insurance": math.floor(salary * rate.industrial_accident_insurance / 10) * 10,
         "employment_insurance": math.floor(salary * rate.employment_insurance / 10) * 10
     }     
-    elif 370000 < salary < 5900000:
+    elif 390000 < salary < 6170000:
         calculated_values = {
         "national_pension": math.floor(salary * rate.national_pension / 10) * 10,
         "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
@@ -29,7 +29,7 @@ def get_value(db: Session, salary):
     }    
     else:
         calculated_values = {
-        "national_pension": math.floor(5900000 * rate.national_pension / 10) * 10,
+        "national_pension": math.floor(6170000 * rate.national_pension / 10) * 10,
         "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
         "medical_insurance": None,
         "industrial_accident_insurance": math.floor(salary * rate.industrial_accident_insurance / 10) * 10,
