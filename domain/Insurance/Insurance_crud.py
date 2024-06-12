@@ -1,12 +1,13 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import select
 from models import InsuranceRate
+import domain.Insurance.Insurance_schema as salary_schema
 
 import math
 
-def get_rate(db: Session):
-    return db.execute(select(InsuranceRate)).scalars().first()
-
+def get_rate(db:Session, rate_id:int) -> InsuranceRate | None:
+    result = db.execute(select(InsuranceRate).filter(InsuranceRate.id == rate_id))
+    return result.scalars().first()
 
 # 원단위 절사 (국민연금 기준소득월액 1000원 미만 절사 추가 예정)
 def get_value(db: Session, salary):
@@ -39,6 +40,20 @@ def get_value(db: Session, salary):
     return calculated_values
 
 
+def create_insurance(db:Session, insurance_create:salary_schema.InsuranceRateBase) -> InsuranceRate:
+    insurance = InsuranceRate(
+                            national_pension  =  insurance_create.national_pension, 
+                            health_insurance = insurance_create.health_insurance,
+                            medical_insurance = insurance_create.medical_insurance,
+                            industrial_accident_insurance = insurance_create.industrial_accident_insurance, 
+                            employment_insurance = insurance_create.employment_insurance,
+                        )
+    db.add(insurance)
+    db.commit()
+    db.refresh(insurance)
+    return insurance
+
+
 # 키:값 형태로 4대보험 요율 데이터 전달
 def update_rate(db: Session, rate_id: int, new_values: dict):
     rate = db.query(InsuranceRate).filter(InsuranceRate.id == rate_id).first()
@@ -49,3 +64,8 @@ def update_rate(db: Session, rate_id: int, new_values: dict):
     db.commit()
     db.refresh(rate)
     return rate
+
+
+def delete_rate(db:Session, rate_select : InsuranceRate) -> None:
+    db.delete(rate_select)
+    db.commit()

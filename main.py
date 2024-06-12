@@ -8,13 +8,18 @@ from domain.User import user_router
 
 app = FastAPI()
 
+origins = [
+    "http://localhost:5173",
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # 프론트엔드 접근 허가를 위한 CORS 설정
+    allow_origins=origins, # 프론트엔드 접근 허가를 위한 CORS 설정
     allow_credentials = True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 app.include_router(Insurance_router.router)
 app.include_router(question_router.router)

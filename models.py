@@ -2,6 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String, Float, Text, DateTim
 from sqlalchemy.orm import relationship
 from database import Base
 
+# industrial_accident_insurance과 employment_insurance 순서 바꾸기
 class InsuranceRate(Base):
     __tablename__ = "4_Major_Insurance_rates"
 
