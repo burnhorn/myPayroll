@@ -11,12 +11,13 @@ router = APIRouter(
     prefix = "/api/question"
 )
 
+
 # 질문 여러 개체를 CRUD에서 가져오므로 응답모델을 list로 설정
 @router.get("/list", response_model = list[question_schema.QuestionList])
 async def get_question_list(db:Session = Depends(get_db)):
     return question_crud.get_question_list(db)
 
-@router.get("/{quesiton_id}", response_model = question_schema.QuestionCreateResponse)
+@router.get("/{question_id}", response_model = question_schema.QuestionCreateResponse)
 async def get_question(question_id : int, db:Session = Depends(get_db)):
     return question_crud.get_question(db, question_id = question_id)
 
