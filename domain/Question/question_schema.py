@@ -6,7 +6,9 @@ class QuestionBase(BaseModel):
     title : str | None = Field(None, example = "작성이 제대로 됐나요?")
     content : str | None = Field(None, example = "더미데이터")
 
-class QuestionCreate(QuestionBase):
+class QuestionCreate(BaseModel):
+    title : str | None = Field(None, example = "작성이 제대로 됐나요?")
+    content : str | None = Field(None, example = "더미데이터")
     create_date : datetime.datetime
     
 class QuestionUpdate(QuestionBase):

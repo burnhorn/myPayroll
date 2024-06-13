@@ -17,7 +17,7 @@ async def insurance(rate_id : int, db: Session = Depends(get_db)):
     return rates
 
 # 급여에 따른 4대보험료
-@router.get("/calculate", response_model=salary_schema.InsuranceRateBase)
+@router.post("/calculate", response_model=salary_schema.InsuranceRateBase)
 async def calculate_insurance(db: Session = Depends(get_db), salary : int = Query(..., description="Input Your Salary")):
     
     value = salary_crud.get_value(db, salary)
