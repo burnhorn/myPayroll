@@ -1,6 +1,7 @@
 <script>
     import { loginUser } from '../../lib/fetch.js';
     import { push } from 'svelte-spa-router'
+    import { authStore } from '../../lib/store.js';
       
     let paramas = {
         username : "",
@@ -13,7 +14,8 @@
       try {
         const loginParams = await loginUser(paramas);
         console.log('Fetched loginparamas data:', loginParams);
-        push('/');
+        authStore.set(loginParams); // token값 저장
+        push('/'); // 루트 route로 이동
       } catch (error) {
         console.error('로그인 중 오류가 발생했습니다:', error);
       }
