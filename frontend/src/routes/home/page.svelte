@@ -18,7 +18,13 @@
 </script>
 
 <ul>
-  {#each question_list as question}
+  {#each question_list as question, i}
   <li><a use:link href="/question/{question.id}">{question.title}</a></li>
   {/each}
 </ul>
+
+<style>
+  li {
+    list-style:none;
+  }
+</style>
