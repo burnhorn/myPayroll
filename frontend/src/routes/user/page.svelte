@@ -1,6 +1,6 @@
 <script>
     import { loginUser } from '../../lib/fetch.js';
-
+    import { push } from 'svelte-spa-router'
       
     let paramas = {
         username : "",
@@ -13,6 +13,7 @@
       try {
         const loginParams = await loginUser(paramas);
         console.log('Fetched loginparamas data:', loginParams);
+        push('/');
       } catch (error) {
         console.error('로그인 중 오류가 발생했습니다:', error);
       }

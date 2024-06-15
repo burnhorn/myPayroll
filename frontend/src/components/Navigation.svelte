@@ -7,7 +7,7 @@
   <ul>
     <li><a use:link href="/" class="{currentRoute === '/' ? 'active' : ''}">Home</a></li>
     <li><a use:link href="/insurance/calculate">Calculation</a></li>
-    <li><a use:link href="/user_login">Login</a></li>
+    <li class="login-right"><a use:link href="/user_login">Login</a></li>
     <!-- 필요한 만큼 링크 추가 -->
   </ul>
 </nav>
@@ -16,6 +16,7 @@
   nav {
     background-color: #333;
     padding: 0.1rem;
+    padding-right: 2rem;
   }
 
   ul {
@@ -35,5 +36,9 @@
 
   .active {
     font-weight: bold;
+  }
+
+  li.login-right {
+    margin-left: auto;
   }
 </style>
