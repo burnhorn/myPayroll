@@ -45,7 +45,7 @@ async def login_for_access_token(form_data: Annotated[OAuth2PasswordRequestForm,
         data = {"sub":user.user_name},
                 expires_delta = access_token_expires
     )
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer", "username": user.user_name}
 
 # token 값은 oauth2_scheme->@router.post("/token")에서 얻어진 "access_token"
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], db: Session = Depends(get_db)) -> User:

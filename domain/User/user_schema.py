@@ -30,9 +30,11 @@ class UserInDB(UserBase):
 class UserCreateResponse(UserCreate):
     pass
 
+# Authorize버튼의 username의 키와 매핑해야 하므로 user_name으로는 가져올 수 없다
 class Token(BaseModel):
     access_token: str
     token_type : str
+    username : str
 
 class TokenData(BaseModel):
     username : str |None = None

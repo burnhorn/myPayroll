@@ -4,11 +4,14 @@
     import Question from "./routes/question/page.svelte"
     import Insurance from "./routes/insurance/page.svelte"
     import InsuranceCal from "./routes/insurance/cal_page.svelte" 
+    import User from "./routes/user/page.svelte" 
+    
     const routes = {
         '/': Home,
         '/question/:question_id' : Question,
         '/insurance/calculate' : InsuranceCal,
         '/insurance/:rate_id' : Insurance,
+        '/user_login' : User,
     }
 </script>
 
