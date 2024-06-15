@@ -34,3 +34,14 @@
         <button type="submit" class="btn btn-primary" on:click="{postLoginUser}">로그인</button>
     </form>
 </div>
+
+
+<style>
+    .login-border {
+        display : flex;
+        padding : 5px;
+        margin : 0;
+        width: 100%;
+        color: rgb(104, 104, 104);
+    }
+</style>

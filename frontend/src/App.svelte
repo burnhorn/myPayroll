@@ -5,7 +5,9 @@
     import Insurance from "./routes/insurance/page.svelte"
     import InsuranceCal from "./routes/insurance/cal_page.svelte" 
     import User from "./routes/user/page.svelte" 
-    
+
+    import Layout from './components/Layout.svelte'
+
     const routes = {
         '/': Home,
         '/question/:question_id' : Question,
@@ -15,4 +17,6 @@
     }
 </script>
 
-<Router {routes} />
+<Layout>
+    <Router {routes} />
+</Layout>
