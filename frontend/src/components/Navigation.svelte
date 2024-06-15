@@ -34,7 +34,7 @@
     <div class = "login-right">
       {#if authDetails.username }
       <li ><a use:link href="/" on:click={logout}>LogOut</a></li>
-      <li><span>환영합니다. {authDetails.username}님</span></li>
+      <li class = "welcome-message"><span>환영합니다. {authDetails.username}님</span></li>
       {:else}
       <li ><a use:link href="/user_login">Login</a></li>
       {/if}
@@ -77,6 +77,11 @@
 
   .active {
     font-weight: bold;
+  }
+
+  .welcome-message {
+    color: white;
+    margin-left: auto;
   }
 
 </style>
