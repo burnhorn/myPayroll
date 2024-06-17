@@ -9,7 +9,7 @@
     async function loadQuestionDetail() {
       try {
         question_detail = await getQuestionDetail(question_id);
-        console.log("데이터를 성공적으로 불러왔습니다:", question_detail);
+        console.log("svelte 내에서 데이터를 성공적으로 불러왔습니다:", question_detail);
       } catch (error) {
         console.error('질문 목록을 불러오는 중 오류가 발생했습니다:', error);
       }
@@ -20,8 +20,23 @@
 
   </script>
   
-  <h1>{question_detail.title}</h1>
+ <h1>질문 : {question_detail.title}</h1>
   <div>
-    {question_detail.content} <br>
-    {question_detail.create_date}
-  </div>
+    질문 내용 : {question_detail.content} <br>
+    질문 작성일 : {question_detail.create_date}
+
+  <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
+    {#if question_detail.answers && question_detail.answers.length >0}
+      <ul>
+        {#each question_detail.answers as answer}
+        <li>
+          <p>답변 내용 : {answer.content}</p>
+          <p>답변 작성일시 : {answer.create_date}</p>
+          {#if answer.answer_user}
+            <p>답변자 : {answer.answer_user.user_name}</p>
+          {/if}  
+        </li>
+        {/each}
+      </ul>
+    {/if}  
+  </div> 
