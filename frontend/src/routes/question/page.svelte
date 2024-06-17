@@ -22,6 +22,6 @@
   
   <h1>{question_detail.title}</h1>
   <div>
-      {question_detail.content}
+    {question_detail.content} <br>
+    {question_detail.create_date}
   </div>
-  

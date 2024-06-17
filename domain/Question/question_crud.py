@@ -27,9 +27,9 @@ def get_question_list(db:Session) -> list[Question]:
     result = db.execute(select(
         Question.id,
         Question.title,
+        Question.content,
         Question.create_date,
-        Question.user_id,
-        User.user_name.label('user_name'),
+        User.user_name.label('user_name'),  # User 모델의 항목과 동일한 label인 'user_name'
         ).outerjoin(User, Question.user_id == User.id))
     return result.all()
 

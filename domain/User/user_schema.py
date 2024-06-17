@@ -3,6 +3,10 @@ from typing_extensions import Self
 
 class UserBase(BaseModel):
     user_name: str
+
+class UserInfo(UserBase):
+    id : int
+    email: EmailStr
     
 class UserCreate(UserBase):
     email: EmailStr
