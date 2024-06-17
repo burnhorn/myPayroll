@@ -5,7 +5,6 @@
     import Insurance from "./routes/insurance/page.svelte"
     import InsuranceCal from "./routes/insurance/cal_page.svelte" 
     import User from "./routes/user/page.svelte" 
-    import DashBoard from "./routes/dashboard/page.svelte" 
 
     import Layout from './components/Layout.svelte'
 
@@ -15,7 +14,6 @@
         '/insurance/calculate' : InsuranceCal,
         '/insurance/:rate_id' : Insurance,
         '/user_login' : User,
-        '/dashboard' : DashBoard,
     }
 </script>
 
