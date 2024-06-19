@@ -1,6 +1,7 @@
 <script>
     import { getQuestionDetail } from '../../lib/fetch.js'; // named import 사용
-  
+    import AnswerCreate from "../../routes/create/answer-create.svelte";
+
     export let params = {};
     let question_id = params.question_id;
     let question_detail = {};
@@ -46,7 +47,9 @@
         </ul>
       {/if} 
   </div> 
+  <AnswerCreate {question_id}  /> <!-- 자식 컴포넌트 AnswerCreate로 quesiton_id 값 전달하기-->
   </div> 
+  
 
 <style>
  

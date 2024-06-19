@@ -7,6 +7,7 @@
     import User from "./routes/user/page.svelte" 
     import DashBoard from "./routes/dashboard/page.svelte" 
     import QuestionCreate from "./routes/create/question-create.svelte"
+    import AnswerCreate from "./routes/create/answer-create.svelte"
 
     import Layout from './components/Layout.svelte'
 
@@ -18,6 +19,7 @@
         '/user_login' : User,
         '/dashboard' : DashBoard,
         '/question-create' : QuestionCreate,
+        '/answer-create' : AnswerCreate,
     }
 </script>
 
