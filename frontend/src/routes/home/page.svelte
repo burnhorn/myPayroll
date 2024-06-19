@@ -3,7 +3,7 @@
   import { link } from 'svelte-spa-router'
 
   let question_list = [];
-
+  
   // 페이지가 로드될 때 데이터를 가져오기 위해 비동기 함수 사용
   async function loadQuestions() {
     try {
@@ -17,14 +17,37 @@
   loadQuestions();
 </script>
 
-<ul>
-  {#each question_list as question, i}
-  <li><a use:link href="/question/{question.id}">{question.title}</a></li>
-  {/each}
-</ul>
+<div>
+  <ul>
+    {#each question_list as question, i}
+    <li><a use:link href="/question/{question.id}">{question.title}</a></li>
+    {/each}
+  </ul>
+</div>
+
+<a use:link href="/question-create" class="btn">질문 등록하기</a>
+
 
 <style>
   li {
     list-style:none;
   }
+
+  .btn {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
 </style>

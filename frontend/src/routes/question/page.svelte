@@ -25,7 +25,7 @@
     <div class = "question-content">
     질문 내용 : {question_detail.content} <br>
     질문 작성일 : {question_detail.create_date}
-    </div>
+  </div>
   <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
   <div class = "answers-list">  
     {#if question_detail.answers && question_detail.answers.length >0}
@@ -64,6 +64,8 @@
   
   .question-content {
     margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 3px solid #666;
   }
   
   /* Answers styles */
