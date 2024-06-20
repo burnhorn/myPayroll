@@ -18,7 +18,11 @@
   
     // 컴포넌트가 마운트될 때 loadQuestionDetail 함수 호출
     loadQuestionDetail();
-
+    
+    // Function to handle custom event from child component
+    function handleAnswerPostSuccess(event) {
+        loadQuestionDetail();
+    }
 </script>
   
  <h1>질문 : {question_detail.title}</h1>
@@ -47,7 +51,8 @@
         </ul>
       {/if} 
   </div> 
-  <AnswerCreate {question_id}  /> <!-- 자식 컴포넌트 AnswerCreate로 quesiton_id 값 전달하기-->
+    <!-- Include AnswerCreate component and listen for the custom event -->
+    <AnswerCreate {question_id} on:answerPostSuccess={handleAnswerPostSuccess} />
   </div> 
   
 

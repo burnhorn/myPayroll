@@ -1,6 +1,6 @@
 <script>
     import { postAnswer } from '../../lib/fetch.js'; // named import 사용
-    import { push } from 'svelte-spa-router'
+    import { createEventDispatcher } from 'svelte';
 
     export let question_id // 부모 question page에서 값 받기
 
@@ -9,13 +9,17 @@
     };
     let answer_detail = {};
 
+    // Create an event dispatcher
+    const dispatch = createEventDispatcher();
+
     // 페이지가 로드될 때 데이터를 가져오기 위해 비동기 함수 사용
     async function loadPostAnswer(event) {
         event.preventDefault();
       try {
         answer_detail = await postAnswer(question_id, answer_params);
         console.log("svelte 내에서 데이터를 성공적으로 불러왔습니다:", answer_detail);
-        push('/');
+        // Dispatch a custom event to notify the parent component
+        dispatch('answerPostSuccess');
       } catch (error) {
         console.error('답변 데이터를 불러오는 중 오류가 발생했습니다:', error);
       }
