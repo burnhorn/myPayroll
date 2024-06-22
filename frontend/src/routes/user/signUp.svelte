@@ -1,5 +1,5 @@
 <script>
-    import { singUpUser } from '../../lib/fetch.js';
+    import { signUpUser } from '../../lib/fetch.js';
     import { push } from 'svelte-spa-router'
       
     let paramas = {
@@ -9,12 +9,12 @@
         email : "",
     };
   
-    async function postSingUpUser(event) {
+    async function postSignUpUser(event) {
         event.preventDefault();
         console.log("Submitting signup form with parameters:", paramas);
       try {
-        const singupParams = await singUpUser(paramas);
-        console.log('Fetched singupParams data:', singupParams);
+        const signupParams = await signUpUser(paramas);
+        console.log('Fetched signupParams data:', signupParams);
         push('/'); // 루트 / 이동
       } catch (error) {
         console.error('로그인 중 오류가 발생했습니다:', error);
@@ -44,7 +44,7 @@
             <input type = "text" class="form-control" id="email" bind:value="{paramas.email}">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" on:click="{postSingUpUser}">회원가입</button>
+        <button type="submit" class="btn btn-primary" on:click="{postSignUpUser}">회원가입</button>
     </form>
 </div>
 

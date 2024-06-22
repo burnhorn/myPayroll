@@ -21,7 +21,7 @@ router = APIRouter(
 # Authorize 버튼의 username과 password 값을 받을 경로
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/user/token")
 
-@router.post("/create", status_code = status.HTTP_204_NO_CONTENT)
+@router.post("/create", response_model= user_schema.UserBase)
 async def create_user(user_body : user_schema.UserCreate, db: Session = Depends(get_db)):
     if user_crud.check_user(db, user_create = user_body):
         raise (HTTPException(status_code=status.HTTP_409_CONFLICT, detail = "동일한 사용자가 존재합니다."))
