@@ -10,7 +10,6 @@
     import QuestionCreate from "./routes/create/question-create.svelte"
     import AnswerCreate from "./routes/create/answer-create.svelte"
     import UpdateQuestion from "./routes/question/update-question.svelte"
-
     import Layout from './components/Layout.svelte'
 
     const routes = {

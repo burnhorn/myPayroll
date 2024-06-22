@@ -2,6 +2,7 @@
     import { link } from 'svelte-spa-router';
     import { getQuestionDetail } from '../../lib/fetch.js'; // named import 사용
     import AnswerCreate from "../../routes/create/answer-create.svelte";
+    import DeleteQuestion from "./delete-question.svelte";
 
     export let params = {};
     let question_id = params.question_id;
@@ -25,7 +26,7 @@
         loadQuestionDetail();
     }
 </script>
-  
+<!-- 질문 내용 -->
  <h1>질문 : {question_detail.title}</h1>
   <div class = "question-details">
     <div class = "question-content">
@@ -34,9 +35,12 @@
     <br>
     질문 작성일 : {question_detail.create_date}
     <div class="button-container">
+      <!-- 수정 기능 -->
       <a use:link href="/update-question/{question_id}" class="btn">질문 수정하기</a>
+      <!-- 삭제 기능 -->
+      <DeleteQuestion {question_id} />
     </div>
-    </div>
+  </div>
 
     <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
     <div class = "answers-list">  

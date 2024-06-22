@@ -47,9 +47,13 @@ async def update_question(question_id : int,
     return question_crud.update_question(db, question_body, question_original=question)
 
 @router.delete("/delete/{question_id}", response_model = None)
-async def delete_question(question_id : int, db:Session = Depends(get_db)):
+async def delete_question(question_id : int,
+                        db:Session = Depends(get_db),
+                        current_user: User = Depends(user_router.get_current_user)):
     question = question_crud.get_question(db, question_id = question_id)
     if question is None:
         raise HTTPException(status_code = 404, detail = "Data Not Found")
+    if current_user.id != question.user_id:
+        raise HTTPException(status_code = 404, detail = "Unauthorized users")
     
     return question_crud.delete_question(db, question_select=question)  # question_select을 표기함으로써 매개변수의 역할에 대한 직관성을 확보
