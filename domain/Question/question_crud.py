@@ -1,6 +1,7 @@
 from datetime import datetime
+from typing import Tuple
 
-from sqlalchemy import DateTime, Result, select
+from sqlalchemy import DateTime, Result, func, select
 from sqlalchemy.orm import Session
 
 from models import Question, User
@@ -23,16 +24,31 @@ def get_question(db:Session, question_id:int) -> Question | None:
     return result.scalars().first()
 
 # Quesiton 테이블과 User 테이블 조인하여 User.user_name 가져오기
-def get_question_list(db:Session) -> list[Question]:
-    result = db.execute(select(
+def get_question_list(db: Session, skip: int = 0, limit: int = 20) -> Tuple[int, list[dict]]:
+    question_total = db.execute(select(func.count(Question.id))).scalar_one()
+
+    query = select(
         Question.id,
         Question.title,
         Question.content,
         Question.create_date,
-        User.user_name.label('user_name'),  # User 모델의 항목과 동일한 label인 'user_name'
-        ).outerjoin(User, Question.user_id == User.id))
-    return result.all()
+        User.user_name.label('user_name')
+    ).outerjoin(User, Question.user_id == User.id).offset(skip).limit(limit)
 
+    result = db.execute(query)
+    
+    question_list = []
+    for row in result:
+        question = {
+            "id": row.id,
+            "title": row.title,
+            "content": row.content,
+            "create_date": row.create_date,
+            "user_name": row.user_name
+        }
+        question_list.append(question)
+    
+    return question_total, question_list
 
 
 # get_question 함수로 얻은 객체를 사용하여 DB에 있는 데이터에 새로운 입력값을 반영하는 함수

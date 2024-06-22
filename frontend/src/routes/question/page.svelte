@@ -29,28 +29,30 @@
   <div class = "question-details">
     <div class = "question-content">
     질문 내용 : {question_detail.content} <br>
+    작성자 : {question_detail.question_user?.user_name} <!--If question_user is null or undefined, just return undefined. So optional chaining like '?' prevents this error.  -->
+    <br>
     질문 작성일 : {question_detail.create_date}
-  </div>
-  <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
-  <div class = "answers-list">  
-    {#if question_detail.answers && question_detail.answers.length >0}
-        <ul>
-          {#each question_detail.answers as answer}
-          <li class = "answer-item">
-            <div class= "answer-content">
-            <p>답변 내용 : {answer.content}</p>
-            <p>답변 작성일시 : {answer.create_date}</p>
-            </div>
-            {#if answer.answer_user}
-            <div class="answer-user">
-              <p>답변자 : {answer.answer_user.user_name}</p>
-            </div> 
-            {/if}  
-          </li>
-          {/each}
-        </ul>
-      {/if} 
-  </div> 
+    </div>
+    <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
+    <div class = "answers-list">  
+      {#if question_detail.answers && question_detail.answers.length >0}
+          <ul>
+            {#each question_detail.answers as answer}
+            <li class = "answer-item">
+              <div class= "answer-content">
+              <p>답변 내용 : {answer.content}</p>
+              <p>답변 작성일시 : {answer.create_date}</p>
+              </div>
+              {#if answer.answer_user}
+              <div class="answer-user">
+                <p>답변자 : {answer.answer_user.user_name}</p>
+              </div> 
+              {/if}  
+            </li>
+            {/each}
+          </ul>
+        {/if} 
+    </div> 
     <!-- Include AnswerCreate component and listen for the custom event -->
     <AnswerCreate {question_id} on:answerPostSuccess={handleAnswerPostSuccess} />
   </div> 
