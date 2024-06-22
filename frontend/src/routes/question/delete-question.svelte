@@ -9,7 +9,7 @@
         event.preventDefault();
       try {
         await deleteQuestion(question_id);
-        console.log("삭제 성공했습니다:");
+        console.log("삭제 요청했습니다:");
         push('/');
       } catch (error) {
         console.error('삭제 중 오류가 발생했습니다:', error);
