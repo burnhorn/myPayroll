@@ -34,10 +34,15 @@ async def create_question(question_body : question_schema.QuestionCreate,
 
 
 @router.put("/update/{question_id}", response_model=question_schema.QuestionCreateResponse)
-async def update_question(question_id : int, question_body : question_schema.QuestionUpdate, db:Session = Depends(get_db)):
+async def update_question(question_id : int,
+                        question_body : question_schema.QuestionUpdate,
+                        db:Session = Depends(get_db),
+                        current_user: User = Depends(user_router.get_current_user)):
     question = question_crud.get_question(db, question_id = question_id)
     if question is None:
         raise HTTPException(status_code = 404, detail = "Data Not Found")
+    if current_user.id != question.user_id:
+        raise HTTPException(status_code = 404, detail = "Unauthorized users")
 
     return question_crud.update_question(db, question_body, question_original=question)
 

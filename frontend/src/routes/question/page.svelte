@@ -1,4 +1,5 @@
 <script>
+    import { link } from 'svelte-spa-router';
     import { getQuestionDetail } from '../../lib/fetch.js'; // named import 사용
     import AnswerCreate from "../../routes/create/answer-create.svelte";
 
@@ -32,7 +33,11 @@
     작성자 : {question_detail.question_user?.user_name} <!--If question_user is null or undefined, just return undefined. So optional chaining like '?' prevents this error.  -->
     <br>
     질문 작성일 : {question_detail.create_date}
+    <div class="button-container">
+      <a use:link href="/update-question/{question_id}" class="btn">질문 수정하기</a>
     </div>
+    </div>
+
     <!--답변 내용 (question 안의 answer, user 객체를 모두 반복해야 오류가 나지 않는다) -->
     <div class = "answers-list">  
       {#if question_detail.answers && question_detail.answers.length >0}
@@ -55,8 +60,7 @@
     </div> 
     <!-- Include AnswerCreate component and listen for the custom event -->
     <AnswerCreate {question_id} on:answerPostSuccess={handleAnswerPostSuccess} />
-  </div> 
-  
+  </div>
 
 <style>
  

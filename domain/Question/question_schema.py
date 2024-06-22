@@ -14,7 +14,7 @@ class QuestionCreate(BaseModel):
     title : str | None = Field(None, example = "작성이 제대로 됐나요?")
     content : str | None = Field(None, example = "더미데이터")
     
-class QuestionUpdate(QuestionBase):
+class QuestionUpdate(QuestionCreate):
     pass
 
 class QuestionDelete(QuestionBase):

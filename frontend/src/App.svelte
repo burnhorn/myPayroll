@@ -9,6 +9,7 @@
     import DashBoard from "./routes/dashboard/page.svelte" 
     import QuestionCreate from "./routes/create/question-create.svelte"
     import AnswerCreate from "./routes/create/answer-create.svelte"
+    import UpdateQuestion from "./routes/question/update-question.svelte"
 
     import Layout from './components/Layout.svelte'
 
@@ -22,6 +23,7 @@
         '/dashboard' : DashBoard,
         '/question-create' : QuestionCreate,
         '/answer-create' : AnswerCreate,
+        '/update-question/:question_id' : UpdateQuestion,
     }
 
 </script>
