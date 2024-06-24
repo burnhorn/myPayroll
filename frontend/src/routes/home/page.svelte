@@ -62,6 +62,7 @@
 </div>
 
 <style>
+
   .question-container {
     display: flex;
     flex-direction: column;
@@ -69,6 +70,7 @@
   }
 
   .header, .question-row {
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
