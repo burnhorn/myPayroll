@@ -11,9 +11,11 @@
     import AnswerCreate from "./routes/create/answer-create.svelte"
     import UpdateQuestion from "./routes/question/update-question.svelte"
     import Layout from './components/Layout.svelte'
+    import Board from "./routes/board/qna.svelte"
 
     const routes = {
         '/': Home,
+        '/qna': Board,
         '/question/:question_id' : Question,
         '/insurance/calculate' : InsuranceCal,
         '/insurance/:rate_id' : Insurance,
