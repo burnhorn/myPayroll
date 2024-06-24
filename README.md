@@ -27,7 +27,7 @@ I aim to distinguish between data and information. This project explains the pro
 # 4. Project link
 
 you can find all my project's here :
-<https://www.youhave.store/>
+<https://youhave.store/>
 
 
 # 5. First example of my project
