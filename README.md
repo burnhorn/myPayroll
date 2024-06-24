@@ -75,7 +75,7 @@ noun_counts = Counter(all_nouns)
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/scraper.png)
 
-`The above image shows searching data("비트코인") collected using requests and BeautifulSoup, and visualized using WordCloud.`
+`The above image shows searching data("가상화폐") collected using requests and BeautifulSoup, and visualized using WordCloud.`
 
 
 
