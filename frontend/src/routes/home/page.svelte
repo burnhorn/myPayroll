@@ -2,6 +2,9 @@
   import { getQuestionList } from '../../lib/fetch.js'; // named import 사용
   import { link } from 'svelte-spa-router'
   import { writable } from 'svelte/store';
+  import moment from 'moment/min/moment-with-locales' // 날짜 표시 포멧 변환
+
+  moment.locale('ko')
 
   let question_list = [];
   let question_listAndpage = [];
@@ -38,7 +41,7 @@
   <div class="question-row">
     <span class="row-item">{i + 1}</span>
     <span class="row-item"><a use:link href="/question/{question.id}">{question.title}</a></span>
-    <span class="row-item">{question.create_date}</span>
+    <span class="row-item">{moment(question.create_date).format("YYYY년 MM월 DD일 a hh:mm")}</span>
     {#if question.user_name}
     <span class="row-item">{question.user_name}</span>
     {:else}

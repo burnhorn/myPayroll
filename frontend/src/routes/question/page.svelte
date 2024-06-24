@@ -3,6 +3,9 @@
     import { getQuestionDetail } from '../../lib/fetch.js'; // named import 사용
     import AnswerCreate from "../../routes/create/answer-create.svelte";
     import DeleteQuestion from "./delete-question.svelte";
+    import moment from 'moment/min/moment-with-locales' // 날짜 표시 포멧 변환
+
+    moment.locale('ko')
 
     export let params = {};
     let question_id = params.question_id;
@@ -33,7 +36,7 @@
     질문 내용 : {question_detail.content} <br>
     작성자 : {question_detail.question_user?.user_name} <!--If question_user is null or undefined, just return undefined. So optional chaining like '?' prevents this error.  -->
     <br>
-    질문 작성일 : {question_detail.create_date}
+    질문 작성일 : {moment(question_detail.create_date).format("YYYY년 MM월 DD일 a hh:mm")}
     <div class="button-container">
       <!-- 수정 기능 -->
       <a use:link href="/update-question/{question_id}" class="btn">질문 수정하기</a>
@@ -50,7 +53,7 @@
             <li class = "answer-item">
               <div class= "answer-content">
               <p>답변 내용 : {answer.content}</p>
-              <p>답변 작성일시 : {answer.create_date}</p>
+              <p>답변 작성일시 : {moment(answer.create_date).format("YYYY년 MM월 DD일 a hh:mm")}</p>
               </div>
               {#if answer.answer_user}
               <div class="answer-user">
