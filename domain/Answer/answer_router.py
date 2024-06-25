@@ -27,9 +27,6 @@ async def create_answer(
     if not question:
         raise HTTPException(status_code=404, detail="Question Not Found")
     
-    if current_user.id != question.answers.user_id:
-        raise HTTPException(status_code = 404, detail = "Unauthorized users")
-    
     return answer_crud.create_answer(db, answer_create = answer_body, question = question, user = current_user)
 
 # 질문 객체를 가져와 request body 입력값을 db에 전달하여 질문 수정 함수    
