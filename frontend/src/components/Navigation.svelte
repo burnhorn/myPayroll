@@ -28,10 +28,11 @@
 
 <nav>
   <ul>
-    <div>
+    <div> 
       <li><a use:link href="/" class="{currentRoute === '/' ? 'active' : ''}">Home</a></li>
       <li><a use:link href="/insurance/calculate">Calculation</a></li>
       <li><a use:link href="/dashboard">DashBoard</a></li>
+      <li><a use:link href="/scraper">Scraper</a></li>
       <li><a use:link href="/qna">Board</a></li>
     </div>
     <div class = "login-right">
