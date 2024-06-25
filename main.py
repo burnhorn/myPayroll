@@ -10,6 +10,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:5173",
+    "https://youhave.store",
 ]
 app.add_middleware(
     CORSMiddleware,
