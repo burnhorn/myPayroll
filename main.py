@@ -9,7 +9,8 @@ from domain.User import user_router
 app = FastAPI()
 
 origins = [
-    "http://localhost:5173",
+    "http://localhost:5173/",
+    "https://youhave.store",
 ]
 app.add_middleware(
     CORSMiddleware,
