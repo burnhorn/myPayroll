@@ -18,7 +18,7 @@ I aim to distinguish between data and information. This project explains the pro
 ![Reference Image](https://img.shields.io/badge/GoogleCloud-4285F4?style=for-the-badge&logo=google%cloud&logoColor=white)
 ![Reference Image](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
-**(2) Rationale for Tool Selection**
+**(2) The reason for Tool Selection**
 
     - Low Learning Curve for Fast Builds: Selected tools that enable rapid development and are easy to learn.
     - Cloud-Based Technology Familiarity: Utilized GCP to gain familiarity with cloud-based technologies.
