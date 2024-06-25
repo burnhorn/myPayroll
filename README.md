@@ -11,12 +11,12 @@ I aim to distinguish between data and information. This project explains the pro
 
 **(1) Technologies and Tools Used**
 
-    - Python
-    - FastAPI
-    - Svelte
-    - Pandas
-    - Google Cloud Platform (GCP)
-    - PostgreSQL
+![Reference Image](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Reference Image](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Reference Image](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Reference Image](https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white)
+![Reference Image](https://img.shields.io/badge/GoogleCloud-4285F4?style=for-the-badge&logo=google%cloud&logoColor=white)
+![Reference Image](https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 
 **(2) Rationale for Tool Selection**
 
