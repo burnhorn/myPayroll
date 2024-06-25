@@ -22,7 +22,7 @@
           <li>PostgreSQL</li>
       </ul>
 
-      <h2>(2) Rationale for Tool Selection</h2>
+      <h2>(2) The reason for Tool Selection</h2>
       <ul>
           <li>Low Learning Curve for Fast Builds: Selected tools that enable rapid development and are easy to learn.</li>
           <li>Cloud-Based Technology Familiarity: Utilized GCP to gain familiarity with cloud-based technologies.</li>
