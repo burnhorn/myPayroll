@@ -72,6 +72,7 @@
                         <li>
                             <strong>인적 자원 관리 및 분석 필요성</strong> : 분산된 계열사 HR 데이터를 체계적으로 통합하고 분석할 필요가 있었습니다.
                         </li>
+                        <br>
                         <li>
                             <strong>데이터 기반 경영 인사이트 도출</strong> : 데이터 분석을 통해 경영에 유용한 인사이트를 도출해야 했습니다.
                         </li>
@@ -86,8 +87,9 @@
                         <li>
                             <strong>데이터 통합</strong>: Pandas를 사용하여 파편화된 계열사 HR 데이터를 통합했습니다.
                         </li>
+                        <br>
                         <li>
-                            <strong>데이터 시각화</strong>: Excel을 활용하여 데이터를 시각적으로 효과적으로 표현했습니다.
+                            <strong>데이터 시각화</strong>: Excel을 활용하여 데이터를 시각적이고 효과적으로 표현했습니다.
                         </li>
                     </ul>
                 </div>
@@ -100,6 +102,7 @@
                         <li>
                             <strong>사용 기술 및 도구</strong>: Excel, Pandas, FastAPI, Svelte
                         </li>
+                        <br>
                         <li>
                             <strong>도입 배경</strong>:
                             <ul>
@@ -126,7 +129,7 @@
                 <div class="content-body">
                     <ul>
                         <li>
-                            <strong>회사 차원의 성과</strong>:
+                            <strong>회사 차원의 성과</strong>
                             <ul>
                                 <li>
                                     <strong>빠른 데이터 이해</strong>: 의사결정자들이 다양한 시각적 요소를 통해 데이터를 신속하게 파악하고, 전략적 의사결정을 내릴 수 있었습니다. 
@@ -136,8 +139,9 @@
                                 </li>
                             </ul>
                         </li>
+                        <br>
                         <li>
-                            <strong>개인적인 성과</strong>:
+                            <strong>개인적인 성과</strong>
                             <ul>
                                 <li>
                                     <strong>데이터 분석 역량 향상</strong>: Excel의 피벗 테이블과 슬라이서를 활용하여 반응형 대시보드를 개발함으로써 대량의 인적 데이터를 효율적으로 관리하고 보고하는 능력을 키웠습니다. 이를 통해 파편화된 데이터를 통합 관리하는 것의 중요성을 깨닫고, Python과 Pandas를 사용한 데이터 분석 역량을 강화했습니다.
@@ -156,29 +160,23 @@
 				<h2>Skills</h2>
 				<ul>
                     <li class="skill-image">
-                      <img src= "https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="excelImage" class="excel-icon" />
-                      <img src= "https://pandas.pydata.org/static/img/pandas.svg" alt="pandasImage" class="pandas-icon" />
-                      <img src= "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" alt="fastapiImage" class="fastapi-icon" />
-                      <img src= "https://github.com/sveltejs/svelte/raw/main/sites/svelte.dev/static/svelte-logo.svg" alt="svelteImage" class="svelte-icon" />
+                        <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="pythonImage" class="python-icon"/>
+                        <img src= "https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="pandasImage" class="pandas-icon" />
+                        <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="fastapiImage" class="fastapi-icon" />
+                        <img src="https://img.shields.io/badge/Svelte-FF3E00?style=for-the-badge&logo=svelte&logoColor=white" alt="svelteImage" class="svelte-icon" />
                     </li>
 				</ul>
 		</footer>
 </article>
 
 <style>
-	:global(body) {
-		margin:0;
-		background-color : #eee;
-		padding: 0;
-	}
-
 	.header {
 		display:flex;        
         justify-content: space-between;
 		align-items:center;
 		margin:0 auto;
 		background-color : #fff;
-		padding : 0 15px;
+		padding : 0 0px;
 		width: 100%;
 		max-width: auto;
 		height: 50px;
@@ -187,7 +185,7 @@
 	.header-title{
         font-weight: bold;
         text-align: center;
-        width: 80%;
+        width: 100%;
     }
 
     .header-subtitle{
@@ -292,38 +290,5 @@
 
     .skill-image {
         list-style-type: none;  /* Remove bullet points */
-    }
-
-    .excel-icon {
-        width: 40px; 
-        height: auto; 
-        margin: 0 30px; 
-        border: none; 
-        display: inline-block; 
-    }
-
-    .pandas-icon {
-        width: 110px; /* Adjust width for Pandas icon */
-        height: auto; /* Maintain aspect ratio */
-        margin: 0; /* Add spacing */
-        border: none; /* Remove default border */
-        display: inline-block; /* Display inline */
-    }
-
-    .fastapi-icon {
-        width: 120px; 
-        height: auto; 
-        margin: 0 10px;
-        border: none; 
-        display: inline-block; 
-    }
-    
-    .svelte-icon {
-        width: 30px; 
-        height: auto; 
-        margin: 0;
-        border: none; 
-        display: inline-block; 
-        padding-bottom: 5px; /* Add padding below the icon */
     }
 </style>
