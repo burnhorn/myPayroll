@@ -1,4 +1,3 @@
-
 # 1. Issue
 
 Through this project, I aim to enhance my programming skills and leverage data to derive valuable insights. By utilizing FastAPI and Svelte, I have developed a website that ranges from simple salary calculations to comprehensive dashboard presentations using slide functionalities. This project showcases my knowledge in HR, data management, and basic IT skills.
@@ -27,16 +26,13 @@ I aim to distinguish between data and information. This project explains the pro
 # 4. Project link
 
 you can find all my project's here :
-<https://youhave.store/>
-
+[https://youhave.store/](https://youhave.store/)
 
 # 5. First example of my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/basic.PNG)
 
-
 `The above image shows a dashboard created by using the pivot table and slicer function of Excel from data processed by Pandas.`
-
 
 # 6. Second example of my project
 
@@ -77,15 +73,10 @@ noun_counts = Counter(all_nouns)
 
 `The above image shows searching data("가상화폐") collected using requests and BeautifulSoup, and visualized using WordCloud.`
 
-
-
-# 4. Result
+# 7. Result
 
 Previously, collecting, organizing, and processing data to produce meaningful information required significant time and effort. This project highlights the efficiency gains achieved through advanced IT technologies and programming languages like Python. By automating these processes, I was able to focus my limited resources (time, attention, etc.) on high-value tasks. The ability to quickly adapt to and effectively utilize new tools is a critical mindset in the era of the Fourth Industrial Revolution.
 
-# Summary
+# 8. Summary
 
 This project serves as a testament to my proactive approach to learning and my commitment to using data-driven methods to generate value. It underscores the importance of both technical proficiency and the ability to derive actionable insights from data.
-
-
-
