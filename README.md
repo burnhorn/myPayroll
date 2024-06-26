@@ -46,7 +46,7 @@ response = requests.get(url)
 html = response.text
 soup = BeautifulSoup(html, 'xml.parser')
 
-# choose css selector
+# choose css tag
 title_soup = soup.select('ccs.tag')
 titles = [title.text for title in title_soup]
 
