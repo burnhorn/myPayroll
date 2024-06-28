@@ -46,8 +46,8 @@ response = requests.get(url)
 html = response.text
 soup = BeautifulSoup(html, 'xml.parser')
 
-# choose css tag
-title_soup = soup.select('ccs.tag')
+# choose tag
+title_soup = soup.select('tag')
 titles = [title.text for title in title_soup]
 
 # create dataframe
