@@ -25,8 +25,13 @@ I aim to distinguish between data and information. This project explains the pro
 
 # 4. Project link
 
-you can find all my project's here :
-[https://youhave.store/](https://youhave.store/)
+You can find all my project's here :
+
+[https://youhave.store](https://youhave.store/)
+
+Additionally, if you want to know more about me, check out this URL:
+
+[https://bornhorn.tistory.com](https://bornhorn.tistory.com/)
 
 # 5. First example of my project
 
