@@ -101,3 +101,4 @@ def update_rate(db: Session, rate_id: int, new_values: dict):
 def delete_rate(db:Session, rate_select : InsuranceRate) -> None:
     db.delete(rate_select)
     db.commit()
+"""
