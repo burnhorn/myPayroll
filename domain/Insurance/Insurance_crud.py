@@ -8,7 +8,7 @@ import math
 def get_rate(db:Session, rate_id:int) -> InsuranceRate | None:
     result = db.execute(select(InsuranceRate).filter(InsuranceRate.id == rate_id))
     return result.scalars().first()
-
+"""
 # ~24년 6월
 def get_value(db: Session, salary):
     rate = db.execute(select(InsuranceRate)).scalars().first()
@@ -38,9 +38,9 @@ def get_value(db: Session, salary):
     }
     calculated_values["medical_insurance"] = math.floor(calculated_values["health_insurance"] * rate.medical_insurance / 10) * 10
     return calculated_values
+"""
 
-
-""" 24년 7월~
+# 24년 7월~
 # 원단위 절사 (국민연금 기준소득월액 1000원 미만 절사 추가 예정)
 def get_value(db: Session, salary):
     rate = db.execute(select(InsuranceRate)).scalars().first()
