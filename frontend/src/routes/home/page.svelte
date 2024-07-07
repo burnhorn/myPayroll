@@ -37,43 +37,47 @@
   </section>
 
   <section>
-      <h1>5. First example of my project</h1>
+      <h1>5. The first example in my project</h1>
       <img src="https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/basic.PNG "alt="Basic Dashboard Example" />
       <p>The above image shows a dashboard created by using the pivot table and slicer function of Excel from data processed by Pandas.</p>
   </section>
 
   <section>
-      <h1>6. Second example of my project</h1>
+      <h1>6. The second example in my project</h1>
       <pre><code>{`
-# Scraping
-url = 'Searching Site URL'
-response = requests.get(url)
-html = response.text
-soup = BeautifulSoup(html, 'xml.parser')
-
-# choose css selector
-title_soup = soup.select('ccs.tag')
-titles = [title.text for title in title_soup]
-
-# create dataframe
-df = pd.DataFrame("title" : titles)
-
-text_data = df['title'].dropna()
-
-def extract_nouns(text):
-  nouns = re.findall(r'\\b[가-힣]+\\b', text)
-  return nouns
-
-# Extract nouns from all text data
-all_nouns = []
-for text in text_data:
-  all_nouns.extend(extract_nouns(text))
-
-noun_counts = Counter(all_nouns)
+def get_value(db: Session, salary):
+    rate = db.execute(select(InsuranceRate)).scalars().first()
+    if salary <= 390000:
+        calculated_values = {
+        "national_pension": math.floor(390000 * rate.national_pension / 10) * 10,
+        "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
+        "medical_insurance": None,
+        "industrial_accident_insurance": math.floor(salary * rate.industrial_accident_insurance / 10) * 10,
+        "employment_insurance": math.floor(salary * rate.employment_insurance / 10) * 10
+    }     
+    elif 390000 < salary < 6170000:
+        calculated_values = {
+        "national_pension": math.floor(salary * rate.national_pension / 10) * 10,
+        "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
+        "medical_insurance": None,
+        "industrial_accident_insurance": math.floor(salary * rate.industrial_accident_insurance / 10) * 10,
+        "employment_insurance": math.floor(salary * rate.employment_insurance / 10) * 10
+    }    
+    else:
+        calculated_values = {
+        "national_pension": math.floor(6170000 * rate.national_pension / 10) * 10,
+        "health_insurance": math.floor(salary * rate.health_insurance / 10) * 10,
+        "medical_insurance": None,
+        "industrial_accident_insurance": math.floor(salary * rate.industrial_accident_insurance / 10) * 10,
+        "employment_insurance": math.floor(salary * rate.employment_insurance / 10) * 10
+    }
+    calculated_values["medical_insurance"] = math.floor(calculated_values["health_insurance"] * rate.medical_insurance / 10) * 10
+    return calculated_values
       `}</code></pre>
       <p>Running the program we get the following output:</p>
-      <img src="https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/scraper.png" alt="Scraper Output Example" />
-      <p>The above image shows searching data("가상화폐") collected using requests and BeautifulSoup, and visualized using WordCloud.</p>
+      <img src="https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator.PNG" alt="Calculator Output Example" />
+      <img src="https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator2.PNG" alt="Calculator Output Example2" />
+      <p>The above image shows the calculator reflecting insurance rates in July 2024.</p>
   </section>
 
   <section>
