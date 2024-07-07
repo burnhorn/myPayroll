@@ -33,13 +33,13 @@ Additionally, if you want to know more about me, check out this URL:
 
 [https://bornhorn.tistory.com](https://bornhorn.tistory.com/)
 
-# 5. First example of my project
+# 5. The first example in my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/basic.PNG)
 
 `The above image shows a dashboard created by using the pivot table and slicer function of Excel from data processed by Pandas.`
 
-# 6. First example of my project
+# 6. The second example in my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator.PNG)
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator2.PNG)
