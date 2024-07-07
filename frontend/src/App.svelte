@@ -12,7 +12,6 @@
     import UpdateQuestion from "./routes/question/update-question.svelte"
     import Layout from './components/Layout.svelte'
     import Board from "./routes/board/qna.svelte"
-    import Scraper from "./routes/scraper/scraper-main.svelte"
 
     const routes = {
         '/': Home,
@@ -23,7 +22,6 @@
         '/user-login' : Login,
         '/user-singup' : SignUp,
         '/dashboard' : DashBoard,
-        '/scraper' : Scraper,
         '/question-create' : QuestionCreate,
         '/answer-create' : AnswerCreate,
         '/update-question/:question_id' : UpdateQuestion,
