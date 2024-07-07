@@ -42,7 +42,7 @@ Additionally, if you want to know more about me, check out this URL:
 # 6. First example of my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator.PNG)
-
+![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator2.PNG)
 
 `The above image shows the calculator reflecting insurance rates in July 2024.`
 
