@@ -23,23 +23,14 @@ I aim to distinguish between data and information. This project explains the pro
     - Cloud-Based Technology Familiarity: Utilized GCP to gain familiarity with cloud-based technologies.
     - Stable Data Management: Chose PostgreSQL for reliable and robust data management.
 
-# 4. Project link
 
-You can find all my project's here :
-
-[https://youhave.store](https://youhave.store/)
-
-Additionally, if you want to know more about me, check out this URL:
-
-[https://bornhorn.tistory.com](https://bornhorn.tistory.com/)
-
-# 5. The first example in my project
+# 4. The first example in my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/basic.PNG)
 
 `The above image shows a dashboard created by using the pivot table and slicer function of Excel from data processed by Pandas.`
 
-# 6. The second example in my project
+# 5. The second example in my project
 
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator.PNG)
 ![Reference Image](https://github.com/burnhorn/myPayroll/raw/main/frontend/src/assets/image/calculator2.PNG)
@@ -79,10 +70,10 @@ def get_value(db: Session, salary):
     return calculated_values
 ```
 
-# 7. Result
+# 6. Result
 
 Previously, collecting, organizing, and processing data to produce meaningful information required significant time and effort. This project highlights the efficiency gains achieved through advanced IT technologies and programming languages like Python. By automating these processes, I was able to focus my limited resources (time, attention, etc.) on high-value tasks. The ability to quickly adapt to and effectively utilize new tools is a critical mindset in the era of the Fourth Industrial Revolution.
 
-# 8. Summary
+# 7. Summary
 
 This project serves as a testament to my proactive approach to learning and my commitment to using data-driven methods to generate value. It underscores the importance of both technical proficiency and the ability to derive actionable insights from data.
